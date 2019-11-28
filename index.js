@@ -14,13 +14,15 @@ const db=require('./config/db');
 
 
 //Modelos de la base de datos
-//require('./models/Clientes');
-//require('./models/Productos');
-//require('./models/Pedidos');
-//clrequire('./models/Usuarios');
+require('./models/Clientes');
+require('./models/Productos');
+require('./models/Pedidos');
+require('./models/Usuarios');
 //db.sync({force:true});
  
-//db.sync();
+db.sync()
+.then(()=>console.log('Conectando al servidor'))
+.catch(error => console.log(error));
 
 const app=express();
 
