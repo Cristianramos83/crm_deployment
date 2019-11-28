@@ -26,6 +26,10 @@ db.sync()
 
 const app=express();
 
+
+//acceso a uploads carpeta publica para el cliente-api
+app.use(express.static('uploads'));
+
 //Conexion a Sequelize SqlServer
 //habilitar bodyParser para leer datos del formulario
 app.use(bodyParser.json());
@@ -54,8 +58,6 @@ app.use(cors(corsOptions));
 //Rutas de la app
 app.use('/',routes());
 
-//acceso a uploads carpeta publica para el cliente-api
-app.use(express.static('uploads'));
 
 //no va a existir en heroku y asignara automaticamente
 const host=process.env.HOST || '0.0.0.0';
